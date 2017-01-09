@@ -4,3 +4,4 @@ README.md
 target/*
 .DS_Store
 .idea/workspace.xml
+*.xml
