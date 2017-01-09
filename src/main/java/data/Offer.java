@@ -47,6 +47,6 @@ public class Offer {
     }
 
     public String getIpString() {
-        return (int) (ip[0]) + "." + (int) (ip[1]) + "." + (int) (ip[2]) + "." + (int) (ip[3]);
+        return (ip[0] & 0xFF) + "." + (ip[1] & 0xFF) + "." + (ip[2] & 0xFF) + "." + (ip[3] & 0xFF);
     }
 }
