@@ -14,12 +14,14 @@ public class TcpServerSocket {
     public String clientSentence;
     public TcpServerSocket() throws IOException {
         serverSocket = new ServerSocket(6789);
-        System.out.println(InetAddress.getLocalHost().getHostAddress());
+        System.out.println(InetAddress.getLocalHost().getHostAddress()+ ":6789");
         serverSocket.setSoTimeout(1000);
     }
 
     public void receiveAndHandle() throws IOException {
+        System.out.println("Server TCP looking for connect");
         Socket connectionSocket = serverSocket.accept();
+        System.out.println("Server recive TCP connect");
         receiveConnectionRequest(connectionSocket);
     }
 
