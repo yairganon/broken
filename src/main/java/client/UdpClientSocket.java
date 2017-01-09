@@ -42,6 +42,7 @@ public class UdpClientSocket {
 
     private void openTcpConnection(Offer offerRequest) throws IOException {
         System.out.println("Try to open clientTCPSocket");
+        System.out.println("IP :" + offerRequest.getIpString() + ":" +  offerRequest.getPort());
         clientTCPSocket = new Socket(offerRequest.getIpString(), offerRequest.getPort());
         System.out.println("clientTCPSocket open ");
     }
