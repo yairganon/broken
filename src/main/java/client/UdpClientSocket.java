@@ -37,12 +37,13 @@ public class UdpClientSocket {
         Offer offerRequest = new Offer(receivePacket.getData());
         System.out.println("FROM SERVER:" + offerRequest);
         clientSocket.close();
-        System.out.printf("heffdfdffre");
         openTcpConnection(offerRequest);
     }
 
     private void openTcpConnection(Offer offerRequest) throws IOException {
+        System.out.println("Try to open clientTCPSocket");
         clientTCPSocket = new Socket(offerRequest.getIpString(), offerRequest.getPort());
+        System.out.println("clientTCPSocket open");
     }
 
     public void sendUserMessage() throws IOException {
