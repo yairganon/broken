@@ -43,7 +43,7 @@ public class UdpClientSocket {
     private void openTcpConnection(Offer offerRequest) throws IOException {
         System.out.println("Try to open clientTCPSocket");
         clientTCPSocket = new Socket(offerRequest.getIpString(), offerRequest.getPort());
-        System.out.println("clientTCPSocket open");
+        System.out.println("clientTCPSocket open ");
     }
 
     public void sendUserMessage() throws IOException {
