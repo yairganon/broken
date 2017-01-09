@@ -43,7 +43,7 @@ public class UdpClientSocket {
         while(isTcpClose()) {
             try {
                 clientTCPSocket = new Socket();
-                clientTCPSocket.connect(new InetSocketAddress(offerRequest.getIpString(), offerRequest.getPort()), 50);
+                clientTCPSocket.connect(new InetSocketAddress(offerRequest.getIpString(), offerRequest.getPort()), 200);
             }catch (SocketTimeoutException e) {
 
             }
@@ -66,7 +66,7 @@ public class UdpClientSocket {
     }
 
     public boolean isTcpClose() {
-        return clientTCPSocket == null ||  clientTCPSocket.isClosed();
+        return clientTCPSocket == null ||  clientTCPSocket.isBound();
     }
 
 
