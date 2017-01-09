@@ -7,10 +7,7 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
-import java.net.Socket;
+import java.net.*;
 
 
 public class UdpClientSocket {
@@ -43,7 +40,10 @@ public class UdpClientSocket {
     private void openTcpConnection(Offer offerRequest) throws IOException {
         System.out.println("Try to open clientTCPSocket");
         System.out.println("IP :" + offerRequest.getIpString() + ":" +  offerRequest.getPort());
-        clientTCPSocket = new Socket(offerRequest.getIpString(), offerRequest.getPort());
+        while(isTcpClose()) {
+            clientTCPSocket = new Socket();
+            clientTCPSocket.connect(new InetSocketAddress(offerRequest.getIpString(), offerRequest.getPort()), 50);
+        }
         System.out.println("clientTCPSocket open ");
     }
 
