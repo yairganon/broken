@@ -37,6 +37,7 @@ public class UdpClientSocket {
         Offer offerRequest = new Offer(receivePacket.getData());
         System.out.println("FROM SERVER:" + offerRequest);
         clientSocket.close();
+        System.out.printf("here");
         openTcpConnection(offerRequest);
     }
 
