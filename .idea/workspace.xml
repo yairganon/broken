@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d3bdb819-0228-4ba0-b3b1-924be251611e" name="Default" comment="asdasdas">
+    <list default="true" id="d3bdb819-0228-4ba0-b3b1-924be251611e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/client/UdpClientSocket.class" afterPath="$PROJECT_DIR$/target/classes/client/UdpClientSocket.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/Offer.class" afterPath="$PROJECT_DIR$/target/classes/data/Offer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/client/UdpClientSocket.java" afterPath="$PROJECT_DIR$/src/main/java/client/UdpClientSocket.java" />
     </list>
     <ignored path="broken-telephone.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/client/UdpClientSocket.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="212">
-              <caret line="45" column="51" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
+              <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -758,7 +757,7 @@
       <updated>1483960126728</updated>
       <workItem from="1483960134075" duration="5575000" />
       <workItem from="1483981573101" duration="14270000" />
-      <workItem from="1483999497754" duration="1064000" />
+      <workItem from="1483999497754" duration="1120000" />
     </task>
     <task id="LOCAL-00001" summary="asdasdas">
       <created>1483999640713</created>
@@ -795,11 +794,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484000484375</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="asdasdas">
+      <created>1484000570473</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1484000570473</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20909000" />
+    <option name="totallyTimeSpent" value="20965000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
@@ -1062,7 +1068,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/client/UdpClientSocket.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
-          <caret line="45" column="51" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
+          <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
           <folding />
         </state>
       </provider>
