@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3bdb819-0228-4ba0-b3b1-924be251611e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/client/UdpClientSocket.class" afterPath="$PROJECT_DIR$/target/classes/client/UdpClientSocket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/Offer.class" afterPath="$PROJECT_DIR$/target/classes/data/Offer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="broken-telephone.iws" />
@@ -757,7 +755,7 @@
       <updated>1483960126728</updated>
       <workItem from="1483960134075" duration="5575000" />
       <workItem from="1483981573101" duration="14270000" />
-      <workItem from="1483999497754" duration="1120000" />
+      <workItem from="1483999497754" duration="1153000" />
     </task>
     <task id="LOCAL-00001" summary="asdasdas">
       <created>1483999640713</created>
@@ -801,11 +799,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484000570473</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="asdasdasdasd">
+      <created>1484000628373</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1484000628373</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20965000" />
+    <option name="totallyTimeSpent" value="20998000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
@@ -876,7 +881,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="asdasdas" />
-    <option name="LAST_COMMIT_MESSAGE" value="asdasdas" />
+    <MESSAGE value="asdasdasdasd" />
+    <option name="LAST_COMMIT_MESSAGE" value="asdasdasdasd" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
