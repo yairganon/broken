@@ -33,7 +33,7 @@ public class Offer {
                 .addAll(ArrayUtils
                                 .addAll(prefix, requestNumber),
                         ArrayUtils
-                                .addAll(port , ip));
+                                .addAll(ip , port));
     }
 
     public int getPort(){
