@@ -68,6 +68,10 @@ public class UdpClientSocket {
         return clientTCPSocket == null ||  !clientTCPSocket.isBound();
     }
 
+    public boolean isUdpClose(){
+        return clientSocket == null ||  !clientSocket.isBound();
+    }
+
     public void closeUdp(){
         if(clientSocket != null)
             clientSocket.close();

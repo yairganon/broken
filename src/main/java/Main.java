@@ -22,7 +22,7 @@ public class Main {
                 tcpServerSocket.receiveMessage();
             }
 
-            if(udpClientSocket.isTcpClose() && tcpServerSocket.isClose()) {
+            if(udpClientSocket.isUdpClose() && tcpServerSocket.isClose()) {
                 try {
                     udpServerSocket.receiveAndHandle();
                     udpServerSocket.close();
