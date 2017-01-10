@@ -69,7 +69,7 @@ public class UdpClientSocket {
     }
 
     public boolean isUdpClose(){
-        return clientSocket == null ||  !clientSocket.isBound();
+        return clientSocket == null ||  clientSocket.isClosed();
     }
 
     public void closeUdp(){

@@ -9,8 +9,8 @@ import java.nio.ByteBuffer;
 public class Offer {
     private byte[] prefix;
     private byte[] requestNumber;
-    private byte[] port;
     private byte[] ip;
+    private byte[] port;
 
     public Offer(Request requestMessage, int tcpPort) throws UnknownHostException {
         prefix = "##Networking17##".getBytes();
@@ -19,11 +19,12 @@ public class Offer {
         ip = InetAddress.getLocalHost().getAddress();
     }
 
-    public Offer(byte[] data){
+    public Offer(byte[] data) throws UnknownHostException {
         prefix = ArrayUtils.subarray(data , 0, 16);
         requestNumber = ArrayUtils.subarray(data , 16, 20);
-        port = ArrayUtils.subarray(data , 20, 22);
-        ip = ArrayUtils.subarray(data , 22, 26);
+        ip = ArrayUtils.subarray(data , 20, 24);
+        port = ArrayUtils.subarray(data , 24, 26);
+        System.out.println(InetAddress.getByAddress(ip).getHostAddress());
     }
 
 
@@ -32,7 +33,7 @@ public class Offer {
                 .addAll(ArrayUtils
                                 .addAll(prefix, requestNumber),
                         ArrayUtils
-                                .addAll(port, ip));
+                                .addAll(port , ip));
     }
 
     public int getPort(){

@@ -11,39 +11,49 @@ public class Main {
         TcpServerSocket tcpServerSocket = new TcpServerSocket();
         UdpServerSocket udpServerSocket = new UdpServerSocket(tcpServerSocket.getPort());
         UdpClientSocket udpClientSocket = new UdpClientSocket();
+
         while (true) {
-            if(tcpServerSocket.isClose()){
-                try{
-                    tcpServerSocket.receiveAndHandle();
-                }catch (SocketTimeoutException e) {
-                    System.out.println("TCP Time out");
-                }
-            }else{
-                tcpServerSocket.receiveMessage();
-            }
+            handleTcpServer(tcpServerSocket);
+            handleUdpServer(tcpServerSocket, udpServerSocket, udpClientSocket);
+            handleClient(tcpServerSocket, udpClientSocket);
+        }
+    }
 
-            if(udpClientSocket.isUdpClose() && tcpServerSocket.isClose()) {
-                try {
-                    udpServerSocket.receiveAndHandle();
-                    udpServerSocket.close();
-                } catch (SocketTimeoutException e) {
-                    System.out.println("UDP Time out");
-                    udpServerSocket.close();
-                }
-            }
-
-            if(udpClientSocket.isTcpClose() && tcpServerSocket.isClose()) {
-                try {
-                    udpClientSocket.sendReceiveAndHandleMessage();
-                    sendMessageToTcpServer(tcpServerSocket, udpClientSocket);
-                } catch (SocketTimeoutException e) {
-                    System.out.println("UDP Client Time out");
-                    udpClientSocket.closeUdp();
-                }
-            }else if(!udpClientSocket.isTcpClose()){
+    private static void handleClient(TcpServerSocket tcpServerSocket, UdpClientSocket udpClientSocket) throws IOException {
+        if(udpClientSocket.isTcpClose() && tcpServerSocket.isClose()) {
+            try {
+                udpClientSocket.sendReceiveAndHandleMessage();
                 sendMessageToTcpServer(tcpServerSocket, udpClientSocket);
+            } catch (SocketTimeoutException e) {
+                System.out.println("UDP Client Time out");
+                udpClientSocket.closeUdp();
             }
+        }else if(!udpClientSocket.isTcpClose()){
+            sendMessageToTcpServer(tcpServerSocket, udpClientSocket);
+        }
+    }
 
+    private static void handleUdpServer(TcpServerSocket tcpServerSocket, UdpServerSocket udpServerSocket, UdpClientSocket udpClientSocket) throws IOException {
+        if(udpClientSocket.isUdpClose() && tcpServerSocket.isClose()) {
+            try {
+                udpServerSocket.receiveAndHandle();
+                udpServerSocket.close();
+            } catch (SocketTimeoutException e) {
+                System.out.println("UDP Time out");
+                udpServerSocket.close();
+            }
+        }
+    }
+
+    private static void handleTcpServer(TcpServerSocket tcpServerSocket) throws IOException {
+        if(tcpServerSocket.isClose()){
+            try{
+                tcpServerSocket.receiveAndHandle();
+            }catch (SocketTimeoutException e) {
+                System.out.println("TCP Time out");
+            }
+        }else{
+            tcpServerSocket.receiveMessage();
         }
     }
 
