@@ -14,7 +14,7 @@ public class TcpServerSocket {
     Socket connectionSocket;
     public TcpServerSocket() throws IOException {
         serverSocket = new ServerSocket(6789);
-        serverSocket.setSoTimeout(1000);
+        serverSocket.setSoTimeout(2000);
         System.out.println(InetAddress.getLocalHost().getHostAddress()+ ":6789");
     }
 

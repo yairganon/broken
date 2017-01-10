@@ -20,9 +20,9 @@ public class UdpServerSocket {
     }
 
     public void receiveAndHandle() throws IOException {
-        serverSocket = new DatagramSocket(6000 , InetAddress.getByName("0.0.0.0"));
-        serverSocket.setSoTimeout(1000);
         DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
+        serverSocket = new DatagramSocket(6000 , InetAddress.getByName("0.0.0.0"));
+        serverSocket.setSoTimeout(2000);
         serverSocket.receive(receivePacket);
         receiveConnectionRequest(receivePacket);
     }
