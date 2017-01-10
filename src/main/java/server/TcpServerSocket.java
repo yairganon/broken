@@ -14,8 +14,8 @@ public class TcpServerSocket {
     public String clientSentence;
     public TcpServerSocket() throws IOException {
         serverSocket = new ServerSocket(6789);
-        System.out.println(InetAddress.getLocalHost().getHostAddress()+ ":6789");
         serverSocket.setSoTimeout(1000);
+        System.out.println(InetAddress.getLocalHost().getHostAddress()+ ":6789");
     }
 
     public void receiveAndHandle() throws IOException {
@@ -36,7 +36,7 @@ public class TcpServerSocket {
         return serverSocket.getLocalPort();
     }
 
-    public boolean close() {
+    public boolean isClose() {
         return serverSocket == null || serverSocket.isBound();
     }
 }

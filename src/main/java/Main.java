@@ -11,9 +11,8 @@ public class Main {
         TcpServerSocket tcpServerSocket = new TcpServerSocket();
         UdpServerSocket udpServerSocket = new UdpServerSocket(tcpServerSocket.getPort());
         UdpClientSocket udpClientSocket = new UdpClientSocket();
-
         while (true) {
-            if(tcpServerSocket.close()){
+            if(tcpServerSocket.isClose()){
                 try{
                     tcpServerSocket.receiveAndHandle();
                 }catch (SocketTimeoutException e) {
@@ -25,6 +24,7 @@ public class Main {
                 udpServerSocket.receiveAndHandle();
             }catch (SocketTimeoutException e) {
                 System.out.println("UDP Time out");
+                udpServerSocket.close();
             }
 
             if(udpClientSocket.isTcpClose()) {
@@ -33,6 +33,7 @@ public class Main {
                     sendMessageToTcpServer(tcpServerSocket, udpClientSocket);
                 } catch (SocketTimeoutException e) {
                     System.out.println("UDP Client Time out");
+                    udpClientSocket.closeUdp();
                 }
             }else{
                 sendMessageToTcpServer(tcpServerSocket, udpClientSocket);
@@ -42,7 +43,7 @@ public class Main {
     }
 
     private static void sendMessageToTcpServer(TcpServerSocket tcpServerSocket, UdpClientSocket udpClientSocket) throws IOException {
-        if(tcpServerSocket.close()){
+        if(tcpServerSocket.isClose()){
             udpClientSocket.sendUserMessage();
         }else{
             udpClientSocket.sendServerMessage(tcpServerSocket.clientSentence);

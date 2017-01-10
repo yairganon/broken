@@ -18,14 +18,14 @@ public class UdpClientSocket {
     public Socket clientTCPSocket;
 
     public UdpClientSocket() throws Exception {
-        clientSocket = new DatagramSocket();
         sendData = new Request().getBytes();
         receiveData = new byte[26];
-        clientSocket.setSoTimeout(1000);
 
     }
 
     public void sendReceiveAndHandleMessage() throws IOException {
+        clientSocket = new DatagramSocket();
+        clientSocket.setSoTimeout(1000);
         InetAddress IPAddress = InetAddress.getByName("255.255.255.255");
         DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, IPAddress, 6000);
         clientSocket.send(sendPacket);
@@ -69,5 +69,9 @@ public class UdpClientSocket {
         return clientTCPSocket == null ||  clientTCPSocket.isBound();
     }
 
-
+    public void closeUdp(){
+        if(clientSocket != null)
+            clientSocket.close();
+        clientSocket = null;
+    }
 }

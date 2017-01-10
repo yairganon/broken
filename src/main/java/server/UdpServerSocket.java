@@ -14,14 +14,14 @@ public class UdpServerSocket {
     private int tcpPort;
 
     public UdpServerSocket(int port) throws Exception{
-        serverSocket = new DatagramSocket(6000 , InetAddress.getByName("0.0.0.0"));
-        serverSocket.setSoTimeout(1000);
         receiveData = new byte[20];
         sendData = new byte[1024];
         tcpPort = port;
     }
 
     public void receiveAndHandle() throws IOException {
+        serverSocket = new DatagramSocket(6000 , InetAddress.getByName("0.0.0.0"));
+        serverSocket.setSoTimeout(1000);
         DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
         serverSocket.receive(receivePacket);
         receiveConnectionRequest(receivePacket);
@@ -40,5 +40,11 @@ public class UdpServerSocket {
         }else{
             System.out.println("Bed Request Or Self BroadCast");
         }
+    }
+
+    public void close() {
+        if(serverSocket != null)
+            serverSocket.close();
+        serverSocket = null;
     }
 }

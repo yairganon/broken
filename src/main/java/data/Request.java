@@ -27,7 +27,7 @@ public class Request {
 
     public boolean isValidRequest(InetAddress address) throws UnknownHostException {
         return new String(prefix).contains("Networking17")
-                && !address.getHostAddress().equals(InetAddress.getLocalHost().getHostAddress());
+                && !address.getHostAddress().equals(InetAddress.getLoopbackAddress());
     }
 
     @Override
