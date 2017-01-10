@@ -40,7 +40,7 @@ public class Main {
                     System.out.println("UDP Client Time out");
                     udpClientSocket.closeUdp();
                 }
-            }else{
+            }else if(!udpClientSocket.isTcpClose()){
                 sendMessageToTcpServer(tcpServerSocket, udpClientSocket);
             }
 
