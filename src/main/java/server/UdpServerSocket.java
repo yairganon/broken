@@ -31,7 +31,7 @@ public class UdpServerSocket {
     private void receiveConnectionRequest(DatagramPacket receivePacket) throws IOException {
         Request requestMessage = new Request(receivePacket.getData());
         if(requestMessage.isValidRequest(receivePacket.getAddress())){
-            System.out.println("contain");
+            System.out.println("Received Valid Request From");
             InetAddress IPAddress = receivePacket.getAddress();
             int port = receivePacket.getPort();
             sendData = new Offer(requestMessage, tcpPort).offerBytes();
