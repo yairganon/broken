@@ -32,7 +32,7 @@ public class Main {
                 }
             }
 
-            if(udpClientSocket.isTcpClose()) {
+            if(udpClientSocket.isTcpClose() && tcpServerSocket.isClose()) {
                 try {
                     udpClientSocket.sendReceiveAndHandleMessage();
                     sendMessageToTcpServer(tcpServerSocket, udpClientSocket);
