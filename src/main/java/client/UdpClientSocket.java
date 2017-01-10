@@ -61,9 +61,16 @@ public class UdpClientSocket {
 
     public void sendServerMessage(String clientSentence) throws IOException {
         DataOutputStream outToServer = new DataOutputStream(clientTCPSocket.getOutputStream());
+        clientSentence=changeString(clientSentence);
         outToServer.writeBytes(clientSentence + '\n');
     }
-
+    String changeString(String s)
+    {
+        char[] characters = s.toCharArray();
+        int rand = (int)(Math.random() * s.length());
+        characters[rand] = '_';
+        return new String(characters);
+    }
     public boolean isTcpClose() {
         return clientTCPSocket == null ||  !clientTCPSocket.isBound();
     }

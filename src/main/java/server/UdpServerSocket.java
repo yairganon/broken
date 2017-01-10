@@ -24,6 +24,7 @@ public class UdpServerSocket {
         serverSocket = new DatagramSocket(6000 , InetAddress.getByName("0.0.0.0"));
         serverSocket.setSoTimeout(2000);
         serverSocket.receive(receivePacket);
+
         receiveConnectionRequest(receivePacket);
     }
 
