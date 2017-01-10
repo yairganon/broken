@@ -5,7 +5,8 @@ target/*
 .DS_Store
 .idea/workspace.xml
 *.xml
-
+.idea
+.idea/*
 # Compiled source #
 ###################
 *.com
