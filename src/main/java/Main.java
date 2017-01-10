@@ -18,6 +18,8 @@ public class Main {
                 }catch (SocketTimeoutException e) {
                     System.out.println("TCP Time out");
                 }
+            }else{
+                tcpServerSocket.receiveMessage();
             }
 
             if(udpClientSocket.isTcpClose()) {

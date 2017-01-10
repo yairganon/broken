@@ -1,7 +1,6 @@
 package server;
 
 import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
@@ -23,10 +22,10 @@ public class TcpServerSocket {
         System.out.println("Server TCP looking for connect");
         connectionSocket = serverSocket.accept();
         System.out.println("Server recive TCP connect");
-        receiveConnectionRequest(connectionSocket);
+        receiveMessage();
     }
 
-    private void receiveConnectionRequest(Socket connectionSocket) throws IOException {
+    public void receiveMessage() throws IOException {
         BufferedReader inFromClient =
                 new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
         clientSentence = inFromClient.readLine();
