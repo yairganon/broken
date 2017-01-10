@@ -52,11 +52,10 @@ public class UdpClientSocket {
     }
 
     public void sendUserMessage() throws IOException {
-        String sentence;
         BufferedReader inFromUser = new BufferedReader( new InputStreamReader(System.in));
         DataOutputStream outToServer = new DataOutputStream(clientTCPSocket.getOutputStream());
         System.out.println("Hey There Send A message!!!!");
-        sentence = inFromUser.readLine();
+        String sentence = inFromUser.readLine();
         outToServer.writeBytes(sentence + '\n');
     }
 
@@ -66,7 +65,7 @@ public class UdpClientSocket {
     }
 
     public boolean isTcpClose() {
-        return clientTCPSocket == null ||  clientTCPSocket.isBound();
+        return clientTCPSocket == null ||  !clientTCPSocket.isBound();
     }
 
     public void closeUdp(){
