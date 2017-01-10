@@ -11,7 +11,6 @@ public class Main {
         TcpServerSocket tcpServerSocket = new TcpServerSocket();
         UdpServerSocket udpServerSocket = new UdpServerSocket(tcpServerSocket.getPort());
         UdpClientSocket udpClientSocket = new UdpClientSocket();
-
         while (true) {
             handleTcpServer(tcpServerSocket);
             handleUdpServer(tcpServerSocket, udpServerSocket, udpClientSocket);
