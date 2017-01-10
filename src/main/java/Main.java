@@ -20,11 +20,14 @@ public class Main {
                 }
             }
 
-            try{
-                udpServerSocket.receiveAndHandle();
-            }catch (SocketTimeoutException e) {
-                System.out.println("UDP Time out");
-                udpServerSocket.close();
+            if(udpClientSocket.isTcpClose()) {
+                try {
+                    udpServerSocket.receiveAndHandle();
+                    udpServerSocket.close();
+                } catch (SocketTimeoutException e) {
+                    System.out.println("UDP Time out");
+                    udpServerSocket.close();
+                }
             }
 
             if(udpClientSocket.isTcpClose()) {
