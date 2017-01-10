@@ -12,6 +12,7 @@ public class TcpServerSocket {
 
     private ServerSocket serverSocket;
     public String clientSentence;
+    Socket connectionSocket;
     public TcpServerSocket() throws IOException {
         serverSocket = new ServerSocket(6789);
         serverSocket.setSoTimeout(1000);
@@ -20,7 +21,7 @@ public class TcpServerSocket {
 
     public void receiveAndHandle() throws IOException {
         System.out.println("Server TCP looking for connect");
-        Socket connectionSocket = serverSocket.accept();
+        connectionSocket = serverSocket.accept();
         System.out.println("Server recive TCP connect");
         receiveConnectionRequest(connectionSocket);
     }
@@ -37,6 +38,6 @@ public class TcpServerSocket {
     }
 
     public boolean isClose() {
-        return serverSocket == null || serverSocket.isBound();
+        return connectionSocket == null || !connectionSocket.isConnected();
     }
 }
